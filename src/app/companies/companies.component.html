@@ -1,0 +1,137 @@
+<div class="layout-default-size">
+  <div class="wrapper">
+
+    <div class="wrapper__btn-row">
+      <button
+        type="button"
+        class="wrapper__btn-row--add-btn"
+        (click)="addCompany()"
+      >
+        <img
+          class="icon-lightGreen add-icon"
+          src="../../assets/icons/add-icon.svg"
+          alt="add-icon"
+        />
+        <span class="wrapper__title">{{"Company.AddCompany" | translate}}</span>
+      </button>
+      <button type="button" class="wrapper__btn-row--clear-filters-button" (click)="clearFilters()">{{'Company.ClearAllFilters' | translate}}</button>
+    </div>
+
+    <div class="wrapper__table" scrollEnd (callback)="loadMore()">
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        matSortDisableClear
+        matSortActive="name"
+        matSortDirection="asc"
+        class="mat-elevation-z8"
+        matSort
+        (matSortChange)="sortDat($event)"
+      >
+        <ng-container matColumnDef="name">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            sortActionDescription="Sort by name"
+            arrowPosition="after"
+          >
+            <span mat-sort-header>{{"Common.Name" | translate}}</span>
+
+            <mat-form-field>
+              <mat-label>{{"Common.Search" | translate}}</mat-label>
+              <input [ngModel]="filters.name"
+                matInput
+                (keyup)="applyFilter($event, 'name')"
+                placeholder=""
+                #input
+              />
+              <img (click)="clearFilter('name')"
+                class="trash-icon"
+                src="../../assets/icons/Trash.svg"
+                alt="trash-icon"
+              />
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            sortActionDescription="Sort by email"
+          >
+            <span mat-sort-header>{{'Common.Email' | translate}}</span>
+            <mat-form-field>
+              <mat-label>{{"Common.Search" | translate}}</mat-label>
+              <input
+                matInput
+                [ngModel]="filters.email"
+                (keyup)="applyFilter($event, 'email')"
+                placeholder=""
+                #input
+              />
+              <img (click)="clearFilter('email')"
+                class="trash-icon"
+                src="../../assets/icons/Trash.svg"
+                alt="trash-icon"
+              />
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="address">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            sortActionDescription="Sort by address"
+          >
+            <span mat-sort-header>{{'Common.Address' | translate}}</span>
+            <mat-form-field>
+              <mat-label>{{"Common.Search" | translate}}</mat-label>
+              <input
+                matInput
+                [ngModel]="filters.address"
+                (keyup)="applyFilter($event, 'address')"
+                placeholder=""
+                #input
+              />
+              <img (click)="clearFilter('address')"
+                class="trash-icon"
+                 src="../../assets/icons/Trash.svg"
+                 alt="trash-icon"
+              />
+            </mat-form-field>
+
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.address }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="options">
+          <th mat-header-cell *matHeaderCellDef>{{"Common.Options" | translate}}</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.options }}
+            <button class="wrapper__table--options-buttons"
+              matTooltip="{{'Company.EditCompany' | translate}}"
+              matTooltipPosition="above"
+              (click)="editCompany(element)"
+            >
+              <img class="edit-icon" src="assets/icons/edit-icon.svg" />
+            </button>
+            <button class="wrapper__table--options-buttons"
+              matTooltip="{{'Company.DeleteCompany' | translate}}"
+              matTooltipPosition="above"
+              (click)="deleteCompany(element)"
+            >
+              <img class="delete-icon" src="assets/icons/delete-icon.svg" />
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+</div>

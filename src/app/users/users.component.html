@@ -1,0 +1,99 @@
+<div class="layout-default-size">
+  <div class="wrapper">
+    <div class="wrapper__btn-row">
+      <button type="button" class="wrapper__btn-row--add-btn" (click)="addUser()">
+        <img class="icon-lightGreen add-icon" src="../../assets/icons/add-icon.svg" alt="add-icon">
+        <span class="wrapper__title">{{"Users.AddUser" | translate}}</span>
+      </button>
+    </div>
+
+    <div class="wrapper__table">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort (matSortChange)="sortData($event)">
+
+        <ng-container matColumnDef="username">
+          <th mat-header-cell *matHeaderCellDef>
+            <span mat-sort-header>{{"Common.Username" | translate}}&nbsp;</span>
+            <mat-form-field>
+              <mat-label>{{"Common.Search" | translate}}</mat-label>
+              <input matInput (keyup)="applyFilter($event, 'username')" placeholder="" #input>
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by firstname">
+            <span mat-sort-header>{{"Common.FirstName" | translate}}&nbsp;</span>
+            <mat-form-field>
+              <mat-label>{{"Common.Search" | translate}}</mat-label>
+              <input matInput (keyup)="applyFilter($event, 'firstName')" placeholder="" #input>
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef>
+            <span mat-sort-header>{{"Common.LastName" | translate}}&nbsp;</span>
+            <mat-form-field>
+              <mat-label>{{"Common.Search" | translate}}</mat-label>
+              <input matInput (keyup)="applyFilter($event, 'lastName')" placeholder="" #input>
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>
+            <span mat-sort-header>{{"Common.Email" | translate}}&nbsp;</span>
+            <mat-form-field>
+              <mat-label>{{"Common.Search" | translate}}</mat-label>
+              <input matInput (keyup)="applyFilter($event, 'email')" placeholder="" #input>
+            </mat-form-field>
+
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="companyId">
+          <th mat-header-cell *matHeaderCellDef>
+            <span mat-sort-header>{{"Common.Company" | translate}}&nbsp;</span>
+            <mat-form-field>
+              <mat-label>{{"Common.Search" | translate}}</mat-label>
+              <input matInput (keyup)="applyFilter($event, 'companyId')" placeholder="" #input>
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.companyId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="authority">
+          <th mat-header-cell *matHeaderCellDef>
+            <span mat-sort-header>{{"Users.Role" | translate}}&nbsp;</span>
+            <mat-form-field>
+              <mat-label>{{"Common.Search" | translate}}</mat-label>
+              <input matInput (keyup)="applyFilter($event, 'authority')" placeholder="" #input>
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.authority}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="options">
+          <th mat-header-cell *matHeaderCellDef> {{"Common.Options" | translate}} </th>
+          <td mat-cell *matCellDef="let element">
+            <div class="options__wrapper">
+              <a matTooltip="{{'Users.EditUser' | translate}}" matTooltipPosition="above" (click)="editUser(element)">
+                <img class="edit-icon" src="../../assets/icons/edit-icon.svg" alt="edit-icon-btn">
+              </a>
+              &nbsp;&nbsp;
+              <a matTooltip="{{'Users.DeleteUser' | translate}}" matTooltipPosition="above" (click)="deleteUser(element)"><img
+                  class="delete-icon" src="../../assets/icons/delete-icon.svg" alt="delete-icon-btn"></a>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+</div>

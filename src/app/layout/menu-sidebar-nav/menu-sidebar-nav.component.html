@@ -1,0 +1,46 @@
+<mat-sidenav-container id="sidenav-container" (backdropClick)="close('backdrop')">
+  <mat-sidenav id="sidenav" #sidenav (keydown.escape)="close('escape')" disableClose>
+    <div class="nav-bar">
+      <button mat-icon-button class="nav-bar__close" (click)="close('toggle button')">
+        <img src="../../../assets/icons/navigate_before.svg" alt="navigate_before" />
+      </button>
+      <mat-nav-list class="nav-bar__menu">
+        <ng-container  *ngFor="let menuItem of menuItems">
+        <mat-list-item class="nav-bar__menu--item" *ngIf="menuItem.isVisible">
+          <button mat-icon-button>
+            <a matLine [routerLink]="menuItem.link">
+              <img src="{{menuItem.icon}}" />
+            </a>
+          </button>
+          <a matLine [routerLink]="menuItem.link">{{menuItem.title | translate}}</a>
+        </mat-list-item>
+      </ng-container>
+      </mat-nav-list>
+    </div>
+    <div class="nav-bar-logo">
+      <img src="./assets/icons/ttms.svg" /> {{'Courses'}}
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content id="sidenav-content">
+    <div class="nav-bar">
+      <button mat-icon-button class="nav-bar__open" (click)="sidenav.open()">
+        <img src="../../../assets/icons/menu_open.svg" alt="menu_open" />
+      </button>
+      <mat-nav-list class="nav-bar__menu">
+        <ng-container  *ngFor="let menuItem of menuItems">
+        <mat-list-item class="nav-bar__menu--item" *ngIf="menuItem.isVisible">
+          <button mat-icon-button>
+            <a matLine [routerLink]="menuItem.link">
+              <img src="{{menuItem.icon}}" />
+            </a>
+          </button>
+        </mat-list-item>
+      </ng-container>
+      </mat-nav-list>
+    </div>
+    <div class="nav-bar-logo">
+      <img src="./assets/icons/ttms.svg" />
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

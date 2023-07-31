@@ -1,0 +1,32 @@
+<div class="wrapper">
+  <div class="wrapper--margin">
+    <h1 class="wrapper__my-table-row">
+      {{"Common.MyDashboard" | translate}}
+    </h1>
+    <div class="wrapper__entity" (window:resize)="tilesOnScreen()">
+      <h2 class="wrapper__entity--heading-row">
+        {{"Dashboard.MyCourses" | translate}}
+      </h2>
+      <div class="wrapper__entity--tiles-row">
+        <app-tiles *ngFor="let course of coursesDisplayed" [displayObj]="course">
+        </app-tiles>
+      </div>
+      <div *ngIf="viewMoreCourses" class="wrapper__entity--view-more-row">
+        <a href="/app/dashboard/courses" class="view-more__link">{{"Dashboard.ViewMore" | translate}}</a>
+      </div>
+    </div>
+
+    <div class="wrapper__entity">
+      <div class="wrapper__entity--heading-row">
+        {{"Dashboard.MyTests" | translate}}
+      </div>
+      <div class="wrapper__entity--tiles-row">
+        <app-tiles *ngFor="let test of testsDisplayed" [displayObj]="test">
+
+        </app-tiles>
+      </div>
+      <div *ngIf="viewMoreTests" class="wrapper__entity--view-more-row">
+        <a href="/app/dashboard/tests" class="view-more__link">{{"Dashboard.ViewMore" | translate}}</a>
+      </div>
+    </div>
+  </div>

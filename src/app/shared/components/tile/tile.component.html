@@ -1,0 +1,40 @@
+<div class="tile-wrapper">
+  <div class="tile-bg-img__container">
+    <img class="tile-bg-img__inner" src="{{displayObj.backgroundImg}}" alt="tile background image">
+  </div>
+  <div class="tile-info">
+    <div class="tile-info__upper-row">
+      <div class="tile-info__upper-row--name" matTooltip="{{displayObj.name}}" matTooltipClass="tile-tooltip"
+        [matTooltipPosition]="'above'" [matTooltipShowDelay]="showDelay.value" [matTooltipHideDelay]="hideDelay.value">
+        {{displayObj.name}}
+      </div>
+      <div class="tile-info__upper-row--date">
+        {{"Tile.Until" | translate}}&nbsp;{{displayObj.date}}
+      </div>
+    </div>
+
+    <div *ngIf="displayObj.progress" class="tile-info__middle-row">
+      <div class="tile-info__middle-row--completed">
+        {{"Tile.Progress" | translate}}
+      </div>
+      <div class="tile-info__middle-row--progress-bar">
+        <mat-progress-bar mode="determinate" value="{{displayObj.progress}}"></mat-progress-bar>&nbsp;{{displayObj.progress}}%
+      </div>
+    </div>
+
+    <div class="tile-info__lower-row" [ngSwitch]="displayObj.status">
+      <a *ngSwitchCase="statusArr[0]" class="tile-info__lower-row--link">{{"Tile.Continue" | translate}}</a>
+      <a *ngSwitchCase="statusArr[1]" class="tile-info__lower-row--link">{{"Tile.Start" | translate}}</a>
+      <a *ngSwitchCase="statusArr[2]" class="tile-info__lower-row--link">{{"Tile.ViewAgain" | translate}}</a>
+      <a *ngSwitchCase="statusArr[3]" class="tile-info__lower-row--link">{{"Tile.SignUp" | translate}}</a>
+      <button mat-button *ngIf="displayObj.canUserLeave && displayObj.progress" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <img class="tile-info__lower-row--menu" src="../../../../assets/icons/menu-dots.svg" alt="menu icon">
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="deleteCourse(displayObj.name, displayObj.id)">
+          <span>{{"Tile.Leave" | translate}}</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</div>

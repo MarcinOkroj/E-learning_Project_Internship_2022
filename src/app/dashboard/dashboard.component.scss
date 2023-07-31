@@ -1,0 +1,52 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.wrapper {
+  @include font-medium();
+
+  font-family: NunitoSans, sans-serif;
+  margin-left: 10vh;
+  overflow: hidden;
+  height: 100%;
+
+  &--margin {
+    margin-top: 93px;
+    margin-right: 10vw;
+  }
+
+  &__my-table-row {
+    @include font-xlarge();
+
+    font-weight: 500;
+  }
+
+  &__entity {
+
+    &--heading-row {
+      @include font-large();
+
+      font-weight: 500;
+      padding-bottom: 20px;
+      padding-top: 43px;
+    }
+
+    &--tiles-row {
+      display: flex;
+    }
+
+    &--view-more-row {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 18px;
+
+      .view-more__link {
+        @include font-small();
+
+        color: $darkGrey;
+        cursor: pointer;
+        font-weight: 500;
+        text-decoration: underline;
+      }
+    }
+  }
+}

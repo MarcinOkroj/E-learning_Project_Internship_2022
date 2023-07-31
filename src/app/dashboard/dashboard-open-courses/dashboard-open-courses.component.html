@@ -1,0 +1,28 @@
+<div class="wrapper dashboard-courses">
+  <div class="dashboard-courses__top">
+    <div class="dashboard-courses__header">
+      {{"Common.OpenCourses" | translate}}
+    </div>
+      <div class="dashboard-courses__utilites">
+        <mat-form-field class="dashboard-courses__utilites--filter">
+          <mat-label>{{"Dashboard.SearchTests" | translate}}</mat-label>
+          <input matInput (keyup)="onFilter($event)">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-select [formControl]="sortFormControl" (selectionChange)="onSort($event)">
+            <mat-option *ngFor="let sort of sortArr" [value]="sort.id">
+              {{sort.text | translate}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  </div>
+  <div class="dashboard-courses__tiles">
+    <mat-grid-list class="tile--padding" cols="{{columnsDisplay}}" (window:resize)="tilesInColumn()" rowHeight="{{rowHeight+'px'}}" gutterSize="{{gutterSize+'px'}}">
+      <mat-grid-tile class="tile--padding" *ngFor="let course of coursesSource">
+        <app-tiles [displayObj]="course">
+        </app-tiles>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

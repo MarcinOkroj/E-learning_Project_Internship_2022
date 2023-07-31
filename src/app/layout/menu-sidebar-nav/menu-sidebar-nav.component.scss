@@ -1,0 +1,110 @@
+@import "../../../styles.scss";
+@import "../../../styles/mixins.scss";
+
+::ng-deep menu-sidebar-nav {
+  #sidenav-container {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+  }
+
+  .mat-drawer-backdrop {
+    position: fixed;
+  }
+
+  #sidenav {
+    background-color: $darkGrey;
+    color: $white;
+    height: 100vh;
+    padding: 1rem;
+    position: fixed;
+    text-align: center;
+
+    .mat-drawer-inner-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden !important;
+      width: 17rem !important;
+      .mat-list-item-content {
+        flex-direction: row-reverse !important;
+        text-align: left;
+        transition: background-color 0.5s ease-in-out;
+        &:hover {
+          background-color: rgba($color: white, $alpha: 0.2);
+        }
+      }
+
+      .nav-bar__close {
+        @include menu-button-icon;
+
+        color: $white;
+        margin-left: 14rem;
+
+        mat-icon {
+          @include menu-icon;
+        }
+      }
+    }
+  }
+
+  #sidenav-content {
+    background-color: $darkGrey;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    overflow: hidden;
+    text-align: center;
+    width: 6rem;
+
+    .nav-bar__open {
+      padding-top: 3%;
+      @include menu-button-icon;
+
+      mat-icon {
+        @include menu-icon;
+
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .nav-bar {
+    &__menu {
+      &--item .mat-icon-button {
+        @include menu-button-icon;
+        border-radius: 50%;
+      }
+
+      &--item {
+        height: 72px !important;
+
+        a {
+          color: $white;
+
+          img {
+            @include menu-icon;
+          }
+        }
+      }
+
+      .cdk-focused,
+      .cdk-mouse-focused {
+        border-color: #fff;
+      }
+    }
+
+    &-logo {
+      @include font-large;
+
+      img {
+        height: 38px;
+        width: 38px;
+      }
+    }
+  }
+}

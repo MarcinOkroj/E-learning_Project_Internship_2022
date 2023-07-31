@@ -1,0 +1,53 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.dashboard-courses {
+  @include font-small();
+
+  display: block;
+  margin-left: 10vh;
+  max-height: calc(100vh - 111px);
+  overflow-y: auto;
+
+  &__top{
+    background-color: $white;
+    height: 200px;
+    padding-top: 93px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  &__header {
+    @include font-xlarge();
+
+    font-weight: 500;
+  }
+
+  &__utilites{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10vh;
+
+    &--filter{
+      width: auto;
+    }
+
+    &--select{
+      @include font-small;
+
+      background-color: transparent;
+      border: none;
+      border-bottom-color: $mediumGrey;
+      border-bottom-style:solid ;
+      border-bottom-width: 1px;
+      height: 48px;
+      width: auto;
+    }
+  }
+
+  &__tiles{
+    margin-right: 10vh;
+    overflow: hidden;
+  }
+}

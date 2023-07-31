@@ -1,0 +1,65 @@
+@mixin font-small {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+
+@mixin font-medium {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+@mixin font-large {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+}
+
+@mixin font-xlarge {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  font-weight: 400;
+}
+
+@mixin font-xxlarge {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 400;
+}
+
+@mixin menu-icon {
+  font-size: 2rem !important;
+  height: 2rem !important;
+  line-height: 32px !important;
+  width: 2rem !important;
+}
+
+@mixin menu-button-icon {
+  font-size: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  width: 3rem;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%)
+    hue-rotate(264deg) brightness(109%) contrast(101%);
+}
+
+@mixin verticalAlign {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: auto;
+}
+
+@mixin d-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin cut-text {
+  display: -webkit-box;
+  overflow: hidden;
+  width: 115px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}

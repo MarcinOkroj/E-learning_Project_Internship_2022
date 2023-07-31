@@ -1,0 +1,76 @@
+<div class="layout-default-size">
+  <div class="wrapper courses">
+    <div class="wrapper__btn-row">
+      <button type="button" class="wrapper__btn-row--add-btn" (click)="addCourse()">
+        <img class="icon-lightGreen add-icon" src="../../assets/icons/add-icon.svg" alt="add-icon">
+        <span class="wrapper__title">{{"Courses.AddCourse" | translate}}</span>
+      </button>
+    </div>
+
+    <div class="wrapper__table">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort (matSortChange)="sortData(sort)">
+
+        <ng-container matColumnDef="coursename">
+          <th mat-header-cell *matHeaderCellDef>
+            <span mat-sort-header>{{"Courses.CourseName" | translate}}&nbsp;</span>
+            <mat-form-field>
+              <mat-label>{{"Common.Search" | translate}}</mat-label>
+              <input matInput (keyup)="applyFilter($event, 'coursename')" placeholder="" #input>
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.coursename}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="coursestartdate">
+          <th mat-header-cell *matHeaderCellDef>
+            <span mat-sort-header>{{"Courses.StartDate" | translate}}&nbsp;</span>
+            <mat-form-field>
+              <mat-label>{{"Common.Search" | translate}}</mat-label>
+              <input matInput (keyup)="applyFilter($event, 'coursestartdate')" placeholder="" #input>
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.coursestartdate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="coursefinishdate">
+          <th mat-header-cell *matHeaderCellDef>
+            <span mat-sort-header>{{"Courses.EndDate" | translate}}&nbsp;</span>
+            <mat-form-field>
+              <mat-label>{{"Common.Search" | translate}}</mat-label>
+              <input matInput (keyup)="applyFilter($event, 'coursefinishdate')" placeholder="" #input>
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.coursefinishdate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="usersnumber">
+          <th mat-header-cell *matHeaderCellDef>
+            <span mat-sort-header>{{"Courses.NumberOfStudents" | translate}}&nbsp;</span>
+            <mat-form-field>
+              <mat-label>{{"Common.Search" | translate}}</mat-label>
+              <input matInput (keyup)="applyFilter($event, 'usersnumber')" placeholder="" #input>
+            </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.usersnumber}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="options">
+          <th mat-header-cell *matHeaderCellDef> {{"Common.Options" | translate}} </th>
+          <td mat-cell *matCellDef="let element"> {{element.options}}
+            <div class="options__wraper">
+              <button matTooltip="Usuń kurs" matTooltipPosition="above" (click)="deleteCourse(element)">
+                <img class="delete-icon" src="../../assets/icons/delete-icon.svg">
+              </button>
+              <button matTooltip="Edytuj kurs" matTooltipPosition="above" (click)="editCourse(element.id)">
+                <img class="delete-icon" src="../../assets/icons/delete-icon.svg">
+              </button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+</div>

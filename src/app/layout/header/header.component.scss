@@ -1,0 +1,32 @@
+@import "../../../styles/variables.scss";
+
+header {
+  align-items: center;
+  background-color: $darkGrey;
+  display: flex;
+  height: 73px;
+  justify-content: flex-end;
+
+  top: 0;
+  width: 100vw;
+
+  ngx-avatar{
+    cursor: pointer;
+  }
+
+  .header__logout {
+    background: none;
+    border: none;
+    margin-left: 50px;
+    margin-right: 80px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--icon {
+      height: 32px;
+      width: 32px;
+    }
+  }
+}

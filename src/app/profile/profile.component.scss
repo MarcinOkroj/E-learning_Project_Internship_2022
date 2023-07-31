@@ -1,0 +1,29 @@
+.profile{
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 111px);
+  padding-left: 96px;
+
+  &__example-form{
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-left: 250px;
+  }
+
+  &__user-photo{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    width: 100px;
+    margin-top: 100px;
+    margin-left: 150px;
+
+    .edit-photo{
+      width: 80px;
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+}

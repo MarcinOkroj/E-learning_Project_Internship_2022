@@ -1,0 +1,83 @@
+@import "../../../../styles/variables.scss";
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/fonts.scss";
+
+.wrapper {
+  @include font-small;
+
+  background-color: $darkGrey;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  font-family: NunitoSans, sans-serif;
+  height: 700px;
+  justify-content: space-between;
+  line-height: 1.5rem;
+  margin: -24px;
+  padding: 25px;
+  width: 500px;
+
+  &__upper-row {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    &--title {
+      @include font-medium;
+    }
+  }
+
+  &__center {
+    padding-left: 3rem;
+    padding-right: 3rem;
+
+    &--padding {
+      padding-bottom: 15px;
+
+      .inputholder {
+        background-color: $white;
+        border: 1px solid $mediumGrey;
+        border-radius: 10px;
+        color: $mediumGrey;
+        cursor: pointer;
+        height: 45px;
+        padding: 14px 10px;
+        margin-top: 8px;
+        width: 100%;
+
+        &:focus-visible {
+          border: 2px solid $primary-material;
+          box-shadow: 0px 0px 24px -2px $primary-material;
+          outline: none;
+        }
+
+        .select__options {
+          font-family: NunitoSans, sans-serif;
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &--btn {
+      height: 45px;
+      width: 120px;
+    }
+  }
+}
+
+.el-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &__img {
+    filter: brightness(0%) invert(55%) sepia(0%) saturate(113%)
+      hue-rotate(12deg) brightness(107%) contrast(90%);
+  }
+}

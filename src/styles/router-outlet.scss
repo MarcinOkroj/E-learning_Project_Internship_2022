@@ -1,0 +1,100 @@
+@import "../styles/mixins.scss";
+@import "../styles/variables.scss";
+
+.layout-default-size {
+  height: calc(100vh - 111px);
+  padding-top: 73px;
+  padding-left: 10px;
+
+  .wrapper {
+    @include font-medium();
+    font-family: NunitoSans, sans-serif;
+
+    &__btn-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-weight: 500;
+      margin-left: 5%;
+      margin-right: 5%;
+
+      &--add-btn {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        height: 25px;
+        margin-bottom: 20px;
+        width: auto;
+
+        &:hover {
+          filter: brightness(80%) drop-shadow(2px 2px 1px $mediumGrey);
+        }
+      }
+
+      &--clear-filters-button{
+        background-color: $lightBlue;
+        border-radius: 5px;
+        border: none;
+        color: $white;
+        cursor: pointer;
+        font-weight: 500;
+        margin-bottom: 20px;
+        padding: 5px;
+      }
+    }
+
+    &__table {
+      border-color: $mediumGrey;
+      border-style: solid;
+      border-width: 2px;
+      height: 60vh;
+      margin-left: 5%;
+      margin-right: 5%;
+      overflow-y: auto;
+
+      &--options-buttons{
+        background-color: transparent;
+        border: none;
+      }
+    }
+
+    &__title {
+      @include font-medium();
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    mat-form-field {
+      width: 80%;
+    }
+
+    .mat-form-field-infix{
+      display: flex;
+    }
+
+    .add-icon {
+      margin-right: 10px;
+    }
+
+    .trash-icon{
+      align-items: flex-end;
+      cursor: pointer;
+      filter: brightness(0%) invert(67%) sepia(5%) saturate(113%) hue-rotate(202deg) brightness(87%) contrast(90%);
+      height: 25px;
+      width: 20px;
+    }
+
+    td , th {
+      max-width: 200px;
+      padding-left: 20px;
+      padding-right: 20px;
+      white-space: normal;
+      word-wrap: break-word;
+    }
+  }
+}

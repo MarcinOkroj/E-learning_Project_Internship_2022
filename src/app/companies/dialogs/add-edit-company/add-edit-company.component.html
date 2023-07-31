@@ -1,0 +1,37 @@
+<div class="wrapper">
+  <div class="wrapper__close">
+    <div class="wrapper__title">{{data.title}}</div>
+    <button mat-button class="wrapper__close-btn el-btn" (click)="close()">
+      <img class="el-btn__img" src="./assets/icons/close-icon.svg" alt="close-icon">
+    </button>
+  </div>
+
+  <form mat-dialog-content class="wrapper__center" [formGroup]="form">
+
+    <div class="wrapper__center--padding">
+      <label>{{"Common.Name" | translate}}* :</label>
+      <input class="inputholder" placeholder="{{'Common.Name' | translate}}" formControlName="companyName">
+    </div>
+
+    <div class="wrapper__center--padding">
+      <label>{{"Common.Address" | translate}}* :</label>
+      <input class="inputholder" placeholder="{{'Common.Address' | translate}}" formControlName="address">
+    </div>
+
+    <div class="wrapper__center--padding">
+      <label>{{"Common.Email" | translate}}* :</label>
+      <input class="inputholder" placeholder="{{'Common.Email' | translate}}" formControlName="email">
+    </div>
+  </form>
+
+  <div mat-dialog-actions class="wrapper__bottom">
+    <button mat-button color="primary" class="wrapper__bottom--btn" mat-raised-button type="button" (click)="save()">
+      {{'Common.Confirm' | translate}}
+    </button>
+    <button mat-button color="warn"
+            class="wrapper__bottom--btn"
+            mat-raised-button type="button" (click)="close()">
+      {{'Common.Cancel' | translate}}
+    </button>
+  </div>
+</div>

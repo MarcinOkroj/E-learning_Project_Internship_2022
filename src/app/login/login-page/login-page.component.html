@@ -1,0 +1,40 @@
+<div class="login-page">
+
+  <div class="language-container">
+    <mat-form-field  class="color" appearance="fill" >
+      <mat-select panelClass="my-select-panel-class" (selectionChange)="languageSelected($event)" [ngModel]="selectedLanguage">
+        <mat-option  class="not-empty-select" *ngFor="let language of languages" [value]="language.value">
+          {{language.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="container login-page__container">
+
+    <div class="container login-page__inner-container">
+      <div class="row login-page__inner-container__upper inside-box-position">
+        <img src="../../../assets/icons/ttms.svg" class="inside-box-position__icon"
+          alt="Planet Earth, from cosmo station">
+        <p class="inside-box-position__upper-title">{{"LoginPage.Login" | translate }}</p>
+      </div>
+
+      <form [formGroup]="form">
+        <div class="row login-page__inner-container__center inside-box-position" id="user-data">
+          <input type=" email" class="inside-box-position__inputholder"
+            placeholder="{{'LoginPage.Email' | translate}}" formControlName="username" id="login-username">
+          <input type="password" class="inside-box-position__inputholder" formControlName="password"
+            placeholder="{{'LoginPage.Password' | translate}}" id="login-password">
+          <mat-error *ngIf="form.get('password')?.invalid && form.get('password')?.touched">{{"LoginPage.IncorrectData" | translate}}
+          </mat-error>
+        </div>
+
+        <div class="row inside-box-position inside-box-position__bottom ">
+          <button mat-raised-button color="primary" (click)="login()" type=" submit" name="login-button"
+            class="inside-box-position__btn-mat-size">{{'LoginPage.Login' | translate}}</button>
+          <a href="#" class="inside-box-position__forgotten-password"><b> {{'Common.RemindPassword'|
+              translate}}</b></a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

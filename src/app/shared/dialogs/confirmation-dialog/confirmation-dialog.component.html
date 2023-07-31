@@ -1,0 +1,18 @@
+<div class="wrapper confirmation-dialog">
+  <div class="wrapper__close">
+    <button mat-button mat-dialog-close class="wrapper__close--btn">
+      <img class="wrapper__close--img" src="../../../assets/icons/close-icon.svg" alt="close-icon">
+    </button>
+  </div>
+  <form mat-dialog-content class="wrapper__center">
+    <div class="wrapper__center--text">
+      <span [innerHTML]="data.text"></span>
+    </div>
+  </form>
+  <div class="wrapper__bottom">
+    <button mat-button class="wrapper__bottom--btn" (click)="dialogRef.close(true)" mat-raised-button
+      color="warn">{{"Common.Yes" | translate}}</button>
+    <button mat-button mat-dialog-close cdkFocusInitial class="wrapper__bottom--btn" mat-raised-button
+      color="primary">{{"Common.Cancel" | translate}}</button>
+  </div>
+</div>

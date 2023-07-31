@@ -1,0 +1,8 @@
+@import "../../styles/variables.scss";
+
+.wrapper {
+  max-height: calc(100vh - 111px);
+  min-height: calc(100vh - 111px);
+  overflow: auto;
+  padding-left: 96px;
+}

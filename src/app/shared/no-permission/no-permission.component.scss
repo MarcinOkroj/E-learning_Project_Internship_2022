@@ -1,0 +1,21 @@
+@import '../../../styles/variables.scss';
+
+.wrapper{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "NunitoSans";
+  font-weight: 500;
+  justify-content: center;
+
+  .noPermissionIcon{
+    filter: brightness(0%) invert(20%) sepia(87%) saturate(3075%) hue-rotate(344deg) brightness(85%) contrast(97%);
+    height: 80px;
+    margin-bottom: 20px;
+    width: 80px;
+  }
+
+  .backToDashboard{
+    margin-top: 20px;
+  }
+}

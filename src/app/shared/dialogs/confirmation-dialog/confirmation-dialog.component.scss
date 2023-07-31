@@ -1,0 +1,55 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/fonts.scss';
+
+
+.wrapper {
+  background-color: $darkGrey;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  justify-content: space-between;
+  margin: -24px;
+  padding: 20px;
+  width: 350px;
+
+  &__close {
+    text-align: right;
+
+    &--btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    &--img {
+      filter: brightness(0%) invert(55%) sepia(0%) saturate(113%) hue-rotate(12deg) brightness(107%) contrast(90%);
+    }
+  }
+
+  &__center{
+    @include font-medium;
+
+    align-self: center;
+    text-align: center;
+
+    &--text{
+      overflow: hidden;
+      width: 251px;
+    }
+  }
+
+  &__bottom{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &--btn{
+      width: 120px;
+      height: 45px;
+    }
+  }
+
+}

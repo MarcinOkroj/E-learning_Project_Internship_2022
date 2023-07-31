@@ -1,0 +1,63 @@
+<div class="wrapper add-edit-user">
+  <div class="wrapper__upper-row">
+    <div class="wrapper__upper-row--title">
+      {{data.title}}
+    </div>
+    <div class="wrapper__upper-row--close">
+      <button mat-button mat-dialog-close class="wrapper__close-btn el-btn">
+        <img class="el-btn__img" src="../../../assets/icons/close-icon.svg" alt="close-icon">
+      </button>
+    </div>
+  </div>
+  <form mat-dialog-content class="wrapper__center" [formGroup]="form" value="primary">
+    <div class="wrapper__center--padding">
+      <label>{{"Common.Username" | translate}}*:</label>
+      <input class="inputholder" placeholder="{{'Common.Username' | translate}}" formControlName="username">
+    </div>
+
+    <div class="wrapper__center--padding">
+      <ng-container *ngIf="this.data.user === undefined">
+        <label>{{'Common.Username' | translate}}*:</label>
+        <input class="inputholder" placeholder="Hasło" #passoword>
+        <mat-slide-toggle (toggleChange)="sliderChanged()" #passwordSwitch></mat-slide-toggle>
+        {{'Users.RandomlyGeneratedPassword' | translate}}
+      </ng-container>
+    </div>
+
+    <div class="wrapper__center--padding">
+      <label>{{'Common.FirstName' | translate}}*:</label>
+      <input class="inputholder" placeholder="{{'Common.FirstName' | translate}}" formControlName="firstName">
+    </div>
+
+    <div class="wrapper__center--padding">
+      <label>{{'Common.LastName' | translate}}*:</label>
+      <input class="inputholder" placeholder="{{'Common.LastName' | translate}}" formControlName="lastName">
+    </div>
+
+    <div class="wrapper__center--padding">
+      <label>{{'Common.Email' | translate}}*:</label>
+      <input class="inputholder" placeholder="{{'Common.Email' | translate}}" formControlName="email">
+    </div>
+
+    <div class="wrapper__center--padding">
+      <label>{{'Common.Company' | translate}}*:</label>
+      <select class="inputholder" formControlName="companyId">
+        <option class="select__options" [value]="company.name" *ngFor="let company of companyId">{{company.name}}
+        </option>
+      </select>
+    </div>
+
+    <div class="wrapper__center--padding">
+      <label>{{'Users.Role' | translate}}*:</label>
+      <select class="inputholder" formControlName="authority">
+        <option class="select__options" [value]="role.name" *ngFor="let role of authority">{{role.name}}</option>
+      </select>
+    </div>
+  </form>
+
+  <div mat-dialog-actions class="wrapper__bottom">
+    <button mat-button class="wrapper__bottom--btn" mat-raised-button type="button" (click)="save()"
+      color="primary">{{'Common.Yes' | translate}}</button>
+    <button type="button" mat-button mat-dialog-close cdkFocusInitial class="wrapper__bottom--btn" mat-raised-button
+      color="warn">{{'Common.Cancel' | translate}}</button>
+  </div>

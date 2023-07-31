@@ -1,0 +1,109 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.login-page {
+  background-image: url("../../../assets/images/planet-blackOverlay.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+
+  &__container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 8%;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .language-container {
+    display: flex;
+    justify-content: right;
+    height: 10%;
+    color: rgb(255, 255, 255);
+    border-radius: 6px;
+    background: none;
+
+    .mat-form-field {
+      .mat-form-field-wrapper {
+        border: 2px solid white;
+        border-radius: 7px;
+      }
+      .mat-select-min-line {
+        color: white;
+        font-size: 15px;
+      }
+    }
+  }
+
+  &__inner-container {
+    background-color: rgba($color: #ffff, $alpha: 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: flex-start;
+    width: 350px;
+    &__upper {
+      height: 175px;
+      width: 100%;
+    }
+    &__center {
+      height: 210px;
+      width: 100%;
+
+      input.ng-invalid.ng-touched {
+        border: 1px solid red;
+      }
+    }
+  }
+}
+.inside-box-position {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  &__bottom {
+    height: 115px;
+    width: 100%;
+  }
+  &__icon {
+    margin-top: 30px;
+    height: 50px;
+    width: 50px;
+  }
+  &__upper-title {
+    @include font-large;
+
+    color: #ffff;
+    margin-top: 33px;
+  }
+  &__inputholder {
+    border: 1px solid $mediumGrey;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 45px;
+    margin-top: 8px;
+    padding: 14px 10px;
+    width: 240px;
+    &:focus-visible {
+      border: 2px solid $primary-material;
+      box-shadow: 0px 0px 24px -2px $primary-material;
+      outline: none;
+    }
+  }
+  &__btn-mat-size {
+    border-radius: 10px;
+    font-size: 1.5rem;
+    height: 45px;
+    width: 240px;
+  }
+  &__forgotten-password {
+    border-bottom: 1px solid #ffff;
+    color: #ffff;
+    margin-top: 17px;
+    text-decoration: none;
+  }
+}

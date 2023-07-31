@@ -1,0 +1,43 @@
+<div class="profile">
+
+  <form class="profile__example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>{{'Nazwa użytkownika'}}</mat-label>
+      <input matInput readonly> <!--value=""-->
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>{{'Imię'}}</mat-label>
+      <input matInput readonly>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>{{'Nazwisko'}}</mat-label>
+      <input matInput readonly>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>{{'Adres e-mail'}}</mat-label>
+      <input matInput readonly>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>{{'Podmiot'}}</mat-label>
+      <input matInput readonly>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>{{'Rola'}}</mat-label>
+      <input matInput readonly>
+    </mat-form-field>
+
+    <button mat-button color="primary" mat-raised-button type="button">{{'Edytuj'}}</button>
+  </form>
+
+  <div class="profile__user-photo">
+    <ngx-avatar [name]="username" size="150"></ngx-avatar>
+    <button mat-button color="primary" class="edit-photo" mat-raised-button type="button">{{'Edytuj'}}</button>
+  </div>
+
+</div>
+

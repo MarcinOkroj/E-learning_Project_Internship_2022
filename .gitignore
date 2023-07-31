@@ -1,0 +1,43 @@
+# Logs
+logs
+*.log
+!src/app/logs
+
+# System Files
+.DS_Store
+._.DS_Store
+Thumbs.db
+
+# Dependency directory
+node_modules
+bower_components/
+.angular
+.vscode
+
+# Linter
+linters/
+
+# testing
+/coverage
+src/assets/scorm
+
+# compiled output
+/build
+/Release
+/dist
+/dll
+.tmp
+documentation/*.html
+
+# misc
+.env
+
+.idea/*
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+src/uploads
