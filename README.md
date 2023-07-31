@@ -1,2 +1,6 @@
-# ttms-kursy-frontend-develop-team-intern-project
- An intern team project
+# ttms-kursy-frontend-develop-team-intership-project
+
+
+A team project developed during a summer internship in 2022.
+
+As a part of the team, I was responsible for implementing **ngx-translate** and developing the **"dashboard"** and **"user" components** with corresponding dependent components, interfaces, API services and dialogs.
